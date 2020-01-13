@@ -1,7 +1,7 @@
 FROM php:7.1-apache
 
 RUN apt-get update && apt-get install -y \
-    libpng12-dev \
+    libpng-dev \
     libtidy-dev \
     libjpeg62-turbo-dev \
     libfreetype6-dev \

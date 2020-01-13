@@ -1,7 +1,7 @@
 FROM php:5.6-apache
 
 RUN apt-get update -y && apt-get install -y \
-      libpng12-dev libtidy-dev libjpeg62-turbo-dev libfreetype6-dev \
+      libpng-dev libtidy-dev libjpeg62-turbo-dev libfreetype6-dev \
 	&& docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd mysqli tidy \
     && a2enmod rewrite
