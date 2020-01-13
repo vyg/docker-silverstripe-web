@@ -21,3 +21,6 @@ RUN curl -sL "https://deb.nodesource.com/setup_${NODE_VERSION}" | bash \
     && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
     && apt-get update && apt-get install -y --no-install-recommends nodejs yarn \
     && rm -rf /var/lib/apt/lists/*
+
+# Install rysnc
+RUN apt-get install -y rsync
