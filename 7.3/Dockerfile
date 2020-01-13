@@ -2,6 +2,8 @@ FROM brettt89/silverstripe-web:7.3-debian-stretch
 
 ARG NODE_VERSION="10.x"
 
+ENV PATH ./vendor/bin:/composer/vendor/bin:$PATH
+
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/ \
@@ -9,6 +11,9 @@ RUN curl -sS https://getcomposer.org/installer | php \
 
 # Install PHP_CodeSniffer
 RUN composer global require "squizlabs/php_codesniffer=*"
+
+# Install CD tools
+RUN composer global require deployer/deployer deployer/recipes
 
 # Install node & yarn
 RUN curl -sL "https://deb.nodesource.com/setup_${NODE_VERSION}" | bash \
