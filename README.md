@@ -2,9 +2,9 @@
 
 ## Supported tags
 
-* [7.3](/7.3/Dockerfile)
-* [7.1](/7.1/Dockerfile)
-* [5.6](/5.6/Dockerfile)
+* [`7.3`, `latest`](/7.3/Dockerfile)
+* [`7.1`](/7.1/Dockerfile)
+* [`5.6`](/5.6/Dockerfile)
 
 ## Getting Started
 
@@ -37,3 +37,9 @@ volumes:
   db-data:
 
 ```
+
+### Building Docker Images
+
+To rebuild and publish on Docker hub make sure you are logged in on your local machine
+
+Run the following `sh build.sh --run --push` to build and push the tags for each image.
