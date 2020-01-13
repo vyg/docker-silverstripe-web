@@ -23,4 +23,4 @@ RUN curl -sL "https://deb.nodesource.com/setup_${NODE_VERSION}" | bash \
     && rm -rf /var/lib/apt/lists/*
 
 # Install rysnc
-RUN apt-get install -y rsync
+RUN apt-get update && apt-get install -y rsync
