@@ -28,8 +28,8 @@ fi
 
 for version in "${phpVersions[@]}"
 do
-    echo "\nBuiding ${version}"
-    docker build -t "voyagestudio/silverstripe-web:${version}" "{$version}"
+    echo "\nBuilding ${version}"
+    docker build -t "voyagestudio/silverstripe-web:${version}" "$version"
 
     if [[ $* == *--push* ]]; then
     echo "\nPushing image to Docker hub..." 
@@ -38,7 +38,7 @@ do
 done
 
 echo "\nBuilding latest"
-docker build -t "voyagestudio/silverstripe-web:latest" "{$defaultPhpVersion}"
+docker build -t "voyagestudio/silverstripe-web:latest" "$defaultPhpVersion"
 
 if [[ $* == *--push* ]]; then
     echo "\nPushing image to Docker hub..." 
