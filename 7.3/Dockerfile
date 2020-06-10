@@ -13,7 +13,9 @@ RUN curl -sS https://getcomposer.org/installer | php \
 RUN composer global require "squizlabs/php_codesniffer=*"
 
 # Install CD tools
-RUN composer global require deployer/deployer deployer/recipes
+RUN curl -LO https://deployer.org/deployer.phar \
+    && mv deployer.phar /usr/local/bin/dep \
+    && chmod +x /usr/local/bin/dep
 
 # Install node & yarn
 RUN curl -sL "https://deb.nodesource.com/setup_${NODE_VERSION}" | bash \
