@@ -88,7 +88,7 @@ RUN echo "ServerName localhost" > /etc/apache2/conf-available/fqdn.conf && \
 	usermod -G staff www-data
 
 # Install Composer
-RUN curl -sS https://getcomposer.org/installer | php \
+RUN curl -sS https://getcomposer.org/installer | php -- --2 \
     && mv composer.phar /usr/local/bin/ \
     && ln -s /usr/local/bin/composer.phar /usr/local/bin/composer
 
