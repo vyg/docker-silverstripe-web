@@ -90,8 +90,10 @@ RUN echo "ServerName localhost" > /etc/apache2/conf-available/fqdn.conf && \
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/ \
-    && ln -s /usr/local/bin/composer.phar /usr/local/bin/composer \
-    && composer self-update --2
+    && ln -s /usr/local/bin/composer.phar /usr/local/bin/composer
+
+# Upgrade Composer
+RUN composer self-update --2
 
 # Install PHP_CodeSniffer
 RUN composer global require "squizlabs/php_codesniffer=*"
