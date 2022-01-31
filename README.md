@@ -3,6 +3,7 @@
 ## Supported tags
 
 - [`7.4`, `latest`](/7.4/Dockerfile)
+- [`7.4-sspak`](/7.4-sspak/Dockerfile) 7.4 but with built-in SSPAK
 - [`7.3`](/7.3/Dockerfile)
 - [`7.1`](/7.1/Dockerfile)
 - [`5.6`](/5.6/Dockerfile)
