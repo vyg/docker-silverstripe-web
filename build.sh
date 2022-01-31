@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 declare -a phpVersions=("7.4" "7.3" "7.1" "5.6")
 declare -a defaultPhpVersion="7.4"
@@ -46,4 +46,5 @@ if [[ $* == *--push* ]]; then
 fi
 
 echo "Done!"
+echo "Please remember to update the README file with the latest tag published. Have a nice day!"
 exit 0
