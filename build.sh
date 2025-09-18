@@ -1,7 +1,7 @@
 #!/bin/bash
 
-declare -a phpVersions=("8.1" "7.4" "7.4-sspak" "7.3" "7.1" "5.6")
-declare -a defaultPhpVersion="7.4"
+declare -a phpVersions=("8.2")
+declare -a defaultPhpVersion="8.2"
 
 #### Functions ###
 display_usage() { 
