@@ -28,21 +28,21 @@ fi
 
 for version in "${phpVersions[@]}"
 do
-    echo "\nBuilding ${version}"
-    docker build -t "voyagestudio/silverstripe-web:${version}" "$version"
+    echo "\nBuilding ${version} for linux/amd64"
+    docker buildx build --platform linux/amd64 -t "voyagestudio/silverstripe-web:${version}" "$version" --load
 
     if [[ $* == *--push* ]]; then
-    echo "\nPushing image to Docker hub..." 
-        docker push "voyagestudio/silverstripe-web:${version}"
+    echo "\nPushing image to Docker hub..."
+        docker buildx build --platform linux/amd64 -t "voyagestudio/silverstripe-web:${version}" "$version" --push
     fi
 done
 
-echo "\nBuilding latest"
-docker build -t "voyagestudio/silverstripe-web:latest" "$defaultPhpVersion"
+echo "\nBuilding latest for linux/amd64"
+docker buildx build --platform linux/amd64 -t "voyagestudio/silverstripe-web:latest" "$defaultPhpVersion" --load
 
 if [[ $* == *--push* ]]; then
-    echo "\nPushing image to Docker hub..." 
-    docker push "voyagestudio/silverstripe-web:latest"
+    echo "\nPushing image to Docker hub..."
+    docker buildx build --platform linux/amd64 -t "voyagestudio/silverstripe-web:latest" "$defaultPhpVersion" --push
 fi
 
 echo "Done!"
