@@ -17,12 +17,18 @@ RUN apt-get update -y && apt-get install -y \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 
-# Install default PHP Extensions
+# Install default PHP Extensions (including SilverStripe requirements)
 RUN docker-php-ext-install -j$(nproc) \
     bcmath \
     mysqli \
     pdo \
-    pdo_mysql
+    pdo_mysql \
+    mbstring \
+    dom \
+    xml \
+    simplexml \
+    ctype \
+    fileinfo
 
 # Install Intl, LDAP, GD, SOAP, Tidy, XSL, Zip PHP Extensions
 RUN apt-get update -y && apt-get install -y \
@@ -85,6 +91,7 @@ RUN { \
 RUN echo "ServerName localhost" > /etc/apache2/conf-available/fqdn.conf && \
     echo "date.timezone = Pacific/Auckland" > /usr/local/etc/php/conf.d/timezone.ini && \
     echo "log_errors = On\nerror_log = /dev/stderr" > /usr/local/etc/php/conf.d/errors.ini && \
+    echo "memory_limit = 256M" > /usr/local/etc/php/conf.d/memory.ini && \
     a2enmod rewrite expires remoteip cgid && \
     usermod -u 1000 www-data && \
     usermod -G staff www-data
