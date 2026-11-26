@@ -49,3 +49,7 @@ To rebuild and publish on Docker hub make sure you are logged in on your local m
 
 In `build.sh`, include the version you have just created, in `phpVersions` array.
 Run the following `sh build.sh --run --push` to build and push the tags for each image.
+
+## Security and code owners
+
+Report a vulnerability or exposed secret as set out in `SECURITY.md` (security@vyg.co.nz). `.github/CODEOWNERS` names the default reviewers on PRs; each owner needs write access to the repo.
